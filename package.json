@@ -1,0 +1,32 @@
+{
+  "name": "training-clean-node-api",
+  "version": "1.0.0",
+  "description": "Training clena Archtecture e TDD with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgmro/training-clean-node-api.git"
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lgmro/training-clean-node-api/issues"
+  },
+  "homepage": "https://github.com/lgmro/training-clean-node-api#readme",
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "standard": "^17.0.0"
+  }
+}
