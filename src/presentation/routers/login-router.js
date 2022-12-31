@@ -5,17 +5,20 @@ module.exports = class LoginRouter {
     this.authUseCase = authUseCase
   }
 
-  route (httRequest) {
-    if (!httRequest || !httRequest.body) {
+  async route (httRequest) {
+    try {
+      const { email, password } = httRequest.body
+      if (!email || !password) {
+        return HttResponse.badRequest((!email) ? 'email' : 'password')
+      }
+
+      const acessToken = await this.authUseCase.auth(email, password)
+      if (!acessToken) {
+        return HttResponse.unauthorizedError()
+      }
+      return HttResponse.ok({ acessToken })
+    } catch (error) {
       return HttResponse.serverError()
     }
-
-    const { email, password } = httRequest.body
-    if (!email || !password) {
-      return HttResponse.badRequest((!email) ? 'email' : 'password')
-    }
-
-    this.authUseCase.auth(email, password)
-    return HttResponse.unauthorizedError()
   }
 }
