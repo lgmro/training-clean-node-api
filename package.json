@@ -4,9 +4,10 @@
   "description": "Training clena Archtecture e TDD with node",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
-    "test:staged": "jest --passWithNoTests",
-    "prepare": "husky install"
+    "test": "jest --watch --silent --colors --noStackTrace",
+    "test:staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
+    "prepare": "husky install",
+    "test:ci": "jest --coverage"
   },
   "repository": {
     "type": "git",
