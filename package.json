@@ -23,7 +23,9 @@
     ]
   },
   "standard": {
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -36,5 +38,8 @@
     "jest": "^29.3.1",
     "lint-staged": "^13.1.0",
     "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "validator": "^13.7.0"
   }
 }
