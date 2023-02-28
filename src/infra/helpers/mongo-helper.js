@@ -14,6 +14,8 @@ module.exports = {
 
   async disconnect () {
     await this.client.close(true)
+    this.client = null
+    this.db = null
   },
 
   async getDb () {
