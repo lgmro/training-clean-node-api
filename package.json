@@ -5,10 +5,10 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "node src/main/index.js",
-    "test": "jest --silent --colors --noStackTrace --passWithNoTests",
+    "test": "jest --silent --colors --noStackTrace --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
-    "test:staged": "npm test --findRelatedTests",
+    "test:staged": "npm test --findRelatedTests --silent",
     "test:ci": "npm test -- --coverage",
     "prepare": "husky install"
   },
@@ -18,7 +18,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "standard --fix"
+      "standard --fix",
+      "npm run test:staged"
     ]
   },
   "standard": {

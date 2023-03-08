@@ -29,6 +29,7 @@ describe('UpdateAcessToken Repository', () => {
   })
 
   afterAll(async () => {
+    mongoServer.stop()
     await MongoHelper.disconnect()
   })
 

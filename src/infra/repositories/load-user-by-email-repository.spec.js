@@ -28,6 +28,7 @@ describe('LoadUserByEmai Repository', () => {
   })
 
   afterAll(async () => {
+    mongoServer.stop()
     await MongoHelper.disconnect()
   })
 
