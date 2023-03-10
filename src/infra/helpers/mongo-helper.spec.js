@@ -14,10 +14,10 @@ describe('Mongo Helper', () => {
     await sut.disconnect()
   })
 
-  test('Should return db when getDb() is invoked', async () => {
+  test('Should return db when getCollection() is invoked', async () => {
     const mongoServer = await MongoMemoryServer.create()
     expect(sut.db).toBeTruthy()
-    const db = await sut.getDb()
+    const db = await sut.getCollection('users')
     expect(db).toBeTruthy()
     mongoServer.stop()
   })
