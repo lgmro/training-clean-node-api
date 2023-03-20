@@ -3,15 +3,13 @@ const { MissingParamError } = require('../../utils/errors')
 const UpdateAcessTokenRepository = require('./update-acess-token-repository')
 const MongoHelper = require('../helpers/mongo-helper')
 
-let userModel
+let userModel, mongoServer
 
 const makeSut = () => {
   return new UpdateAcessTokenRepository()
 }
 
 describe('UpdateAcessToken Repository', () => {
-  let mongoServer
-
   beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create()
     await MongoHelper.connect(mongoServer.getUri())
